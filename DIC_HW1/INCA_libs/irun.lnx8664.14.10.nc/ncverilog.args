@@ -1,0 +1,8 @@
+//
+// File created by:  ncverilog
+// Do not modify this file
+//
+AS_tb.v
+AS_max.v
++nc64bit
++access+r

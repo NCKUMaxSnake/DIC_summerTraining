@@ -1,0 +1,82 @@
+ncverilog(64): 14.10-s005: (c) Copyright 1995-2014 Cadence Design Systems, Inc.
+TOOL:	ncverilog	14.10-s005: Started on Jul 22, 2020 at 16:45:30 CST
+ncverilog
+	div_tb.v
+	div_max.v
+	+nc64bit
+	+access+r
+file: div_max.v
+mescale 1ns / 10ps
+      |
+ncvlog: *E,EXPMPA (div_max.v,1|6): expecting the keyword 'module', 'macromodule' or 'primitive'[A.1].
+    input  [width*2:0] rem[0:width + 1];
+                          |
+ncvlog: *E,EXPSMC (div_max.v,15|26): expecting a semicolon (';') [12.3.2(IEEE)].
+    input  [width*2:0] rem[0:width + 1];
+                                   |
+ncvlog: *E,EXPSMC (div_max.v,15|35): expecting a semicolon (';') [12.3.2(IEEE)].
+    input  [width*2:0] div[0:width + 1];
+                          |
+ncvlog: *E,EXPSMC (div_max.v,16|26): expecting a semicolon (';') [12.3.2(IEEE)].
+    input  [width*2:0] div[0:width + 1];
+                                   |
+ncvlog: *E,EXPSMC (div_max.v,16|35): expecting a semicolon (';') [12.3.2(IEEE)].
+    input  [width-1:0] quo[0:width + 1];
+                          |
+ncvlog: *E,EXPSMC (div_max.v,17|26): expecting a semicolon (';') [12.3.2(IEEE)].
+    input  [width-1:0] quo[0:width + 1];
+                                   |
+ncvlog: *E,EXPSMC (div_max.v,17|35): expecting a semicolon (';') [12.3.2(IEEE)].
+    input  [width*2:0] sub[0:width + 1];
+                          |
+ncvlog: *E,EXPSMC (div_max.v,18|26): expecting a semicolon (';') [12.3.2(IEEE)].
+    input  [width*2:0] sub[0:width + 1];
+                                   |
+ncvlog: *E,EXPSMC (div_max.v,18|35): expecting a semicolon (';') [12.3.2(IEEE)].
+	module worklib.div:v
+		errors: 8, warnings: 0
+            sub = rem - div;
+                |
+ncvlog: *E,EXPLPA (div_max.v,43|16): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            sub = rem - div;
+                      |
+ncvlog: *E,EXPLPA (div_max.v,43|22): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            sub = rem - div;
+                           |
+ncvlog: *E,EXPLPA (div_max.v,43|27): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            quo = {quo[width-2:0], ~sub[16]};
+                |
+ncvlog: *E,EXPLPA (div_max.v,45|16): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            quo = {quo[width-2:0], ~sub[16]};
+                                 |
+ncvlog: *E,EXPLPA (div_max.v,45|33): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            quo = {quo[width-2:0], ~sub[16]};
+                                   |
+ncvlog: *E,EXPLPA (div_max.v,45|35): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            quo = {quo[width-2:0], ~sub[16]};
+                                          |
+ncvlog: *E,EXPCOL (div_max.v,45|42): expecting a colon (':') [3.2.1][3.8(IEEE)].
+            quo = {quo[width-2:0], ~sub[16]};
+                                           |
+ncvlog: *E,EXPLPA (div_max.v,45|43): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            rem = sub[16]?rem:sub;
+                |
+ncvlog: *E,EXPLPA (div_max.v,47|16): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            rem = sub[16]?rem:sub;
+                        |
+ncvlog: *E,EXPCOL (div_max.v,47|24): expecting a colon (':') [3.2.1][3.8(IEEE)].
+            rem = sub[16]?rem:sub;
+                         |
+ncvlog: *E,EXPLPA (div_max.v,47|25): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            rem = sub[16]?rem:sub;
+                             |
+ncvlog: *E,EXPLPA (div_max.v,47|29): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+            rem = sub[16]?rem:sub;
+                                 |
+ncvlog: *E,EXPEND (div_max.v,47|33): Expecting the keyword 'end' [12.1.3(IEEE 2001)].
+	module worklib.sub:v
+		errors: 13, warnings: 0
+	Total errors/warnings found outside modules and primitives:
+		errors: 1, warnings: 0
+ncverilog: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	ncverilog	14.10-s005: Exiting on Jul 22, 2020 at 16:45:30 CST  (total: 00:00:00)
