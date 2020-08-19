@@ -1,0 +1,174 @@
+wvSetPosition -win $_nWave1 {("G1" 0)}
+wvOpenFile -win $_nWave1 {/home/max.chen/DIC_1/DIC_HW4/HW4.fsdb}
+wvGetSignalOpen -win $_nWave1
+wvGetSignalSetScope -win $_nWave1 "/testfixture"
+wvGetSignalSetScope -win $_nWave1 "/testfixture/rc4"
+wvResizeWindow -win $_nWave1 109 123 1052 704
+wvSetPosition -win $_nWave1 {("G1" 5)}
+wvSetPosition -win $_nWave1 {("G1" 5)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/rc4/Sbox\[0:63\]} \
+{/testfixture/rc4/clk} \
+{/testfixture/rc4/j\[5:0\]} \
+{/testfixture/rc4/key_index\[5:0\]} \
+{/testfixture/rc4/rst} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 )} 
+wvSetPosition -win $_nWave1 {("G1" 5)}
+wvSetPosition -win $_nWave1 {("G1" 5)}
+wvSetPosition -win $_nWave1 {("G1" 5)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/rc4/Sbox\[0:63\]} \
+{/testfixture/rc4/clk} \
+{/testfixture/rc4/j\[5:0\]} \
+{/testfixture/rc4/key_index\[5:0\]} \
+{/testfixture/rc4/rst} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 )} 
+wvSetPosition -win $_nWave1 {("G1" 5)}
+wvGetSignalClose -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomOut -win $_nWave1
+wvZoomOut -win $_nWave1
+wvZoomOut -win $_nWave1
+wvZoomOut -win $_nWave1
+wvResizeWindow -win $_nWave1 85 110 1701 704
+wvSetCursor -win $_nWave1 40545.798753 -snap {("G2" 0)}
+wvSelectSignal -win $_nWave1 {( "G1" 4 )} 
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvSetPosition -win $_nWave1 {("G1" 3)}
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvMoveSelected -win $_nWave1
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSetPosition -win $_nWave1 {("G1" 3)}
+wvSelectSignal -win $_nWave1 {( "G1" 2 )} 
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSetPosition -win $_nWave1 {("G1" 1)}
+wvSetPosition -win $_nWave1 {("G1" 0)}
+wvMoveSelected -win $_nWave1
+wvSetPosition -win $_nWave1 {("G1" 0)}
+wvSetPosition -win $_nWave1 {("G1" 1)}
+wvSelectSignal -win $_nWave1 {( "G1" 5 )} 
+wvSetPosition -win $_nWave1 {("G1" 5)}
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvSetPosition -win $_nWave1 {("G1" 3)}
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSetPosition -win $_nWave1 {("G1" 1)}
+wvMoveSelected -win $_nWave1
+wvSetPosition -win $_nWave1 {("G1" 1)}
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSelectSignal -win $_nWave1 {( "G1" 3 )} 
+wvSelectSignal -win $_nWave1 {( "G1" 2 )} 
+wvCut -win $_nWave1
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSetPosition -win $_nWave1 {("G1" 1)}
+wvSelectSignal -win $_nWave1 {( "G1" 2 )} 
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSetPosition -win $_nWave1 {("G1" 3)}
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvMoveSelected -win $_nWave1
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvZoomOut -win $_nWave1
+wvZoomOut -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomOut -win $_nWave1
+wvZoomOut -win $_nWave1
+wvZoomOut -win $_nWave1
+wvGetSignalOpen -win $_nWave1
+wvGetSignalSetScope -win $_nWave1 "/testfixture"
+wvGetSignalSetScope -win $_nWave1 "/testfixture/rc4"
+wvSetPosition -win $_nWave1 {("G1" 6)}
+wvSetPosition -win $_nWave1 {("G1" 6)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/rc4/clk} \
+{/testfixture/rc4/key_index\[5:0\]} \
+{/testfixture/rc4/j\[5:0\]} \
+{/testfixture/rc4/Sbox\[0:63\]} \
+{/testfixture/rc4/cur_state\[3:0\]} \
+{/testfixture/rc4/next_state\[3:0\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvSelectSignal -win $_nWave1 {( "G1" 5 6 )} 
+wvSetPosition -win $_nWave1 {("G1" 6)}
+wvSetPosition -win $_nWave1 {("G1" 6)}
+wvSetPosition -win $_nWave1 {("G1" 6)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/rc4/clk} \
+{/testfixture/rc4/key_index\[5:0\]} \
+{/testfixture/rc4/j\[5:0\]} \
+{/testfixture/rc4/Sbox\[0:63\]} \
+{/testfixture/rc4/cur_state\[3:0\]} \
+{/testfixture/rc4/next_state\[3:0\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvSelectSignal -win $_nWave1 {( "G1" 5 6 )} 
+wvSetPosition -win $_nWave1 {("G1" 6)}
+wvGetSignalClose -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomOut -win $_nWave1
+wvZoomOut -win $_nWave1
+wvSetCursor -win $_nWave1 303582.913923 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 299678.503673 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 302782.009256 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 302481.670006 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 302431.613464 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 302832.065798 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 305084.610173 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 326273.544262 -snap {("G2" 0)}
+wvSetCursor -win $_nWave1 305700.305636 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 303247.535094 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 306751.493011 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 312357.825678 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 307202.001886 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 312307.769136 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 307352.171511 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 303748.100510 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 305700.305636 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 291033.738926 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 287179.385217 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 291384.134718 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 287229.441759 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 292034.869760 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 298392.050552 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 298942.672510 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 300844.821094 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 303097.365469 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 306200.871052 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 308203.132719 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 303848.213594 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 307001.775719 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 301845.951927 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 303197.478552 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 308153.076177 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 303297.591635 -snap {("G1" 4)}
+wvResizeWindow -win $_nWave1 85 110 1701 704
+wvSelectSignal -win $_nWave1 {( "G1" 4 )} 
+wvSetCursor -win $_nWave1 312308.613001 -snap {("G1" 4)}
+wvSetCursor -win $_nWave1 308253.944356 -snap {("G1" 4)}
