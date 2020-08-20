@@ -16,7 +16,8 @@ module RC4(clk,rst,key_valid,key_in,plain_read,plain_in_valid,plain_in,plain_wri
 			  STATE_SBOXMIX2    = 4'b110,
 			  STATE_GETCIPHER   = 4'b111,
 			  STATE_WRITEPLAIN  = 4'b1000,
-			  STATE_DONE        = 4'b1001;
+			  STATE_DONE        = 4'b1001,
+			  STATE_WRITE       = 4'b1010;
 	reg plain_write, cipher_write, plain_read, cipher_read, done;
 	reg [7:0] cipher_out;
 	reg [7:0] plain_out;
@@ -27,6 +28,7 @@ module RC4(clk,rst,key_valid,key_in,plain_read,plain_in_valid,plain_in,plain_wri
 	reg [5:0] j;
 	reg [5:0] Sbox [0:63];
 	wire [5:0] i_new, j_new, temp;
+	reg [5:0] tempi;
 
 
 	integer i;
@@ -34,7 +36,7 @@ module RC4(clk,rst,key_valid,key_in,plain_read,plain_in_valid,plain_in,plain_wri
 //control Unit
 	assign key_index = j + Sbox[key_count] + key[key_count[4:0]];
 	assign i_new = key_count + 1;
-	assign j_new = j + Sbox[i_new];
+	assign j_new = j + tempi;
 	assign temp = Sbox[i_new] + Sbox[j_new];
 
 	always @(*) begin // next state combinational circuit
@@ -64,7 +66,10 @@ module RC4(clk,rst,key_valid,key_in,plain_read,plain_in_valid,plain_in,plain_wri
 				if(!plain_in_valid)
 					next_state = STATE_INITSBOX;
 				else
-					next_state = STATE_WRITECIPHER;
+					next_state = STATE_WRITE;
+			end
+			STATE_WRITE: begin
+				next_state = STATE_WRITECIPHER;
 			end
 			STATE_INITSBOX:
 				next_state = STATE_SBOXMIX2;
@@ -122,13 +127,26 @@ module RC4(clk,rst,key_valid,key_in,plain_read,plain_in_valid,plain_in,plain_wri
 					plain_read <= 1;
 					//plain_write <= 0;
 					j <= 0;
+					tempi <= Sbox[1];
 					key_count <= 0;
+
 				end
 				STATE_WRITECIPHER: begin
 					if(plain_in_valid) begin //??
-						plain_read <= 1; //??
+						plain_read <= 0; //??
+						cipher_write <= 0;
+
 						Sbox[i_new] <= Sbox[j_new]; //i_new = key_count, so key_count has been init in prev step
-						Sbox[j_new] <= Sbox[i_new]; //j_new = j + s[i]
+						Sbox[j_new] <= Sbox[i_new];
+
+
+
+						//temp = Sbox[i_new] + Sbox[j_new];
+
+						//j_new = j + s[i]
+						
+						
+						/*
 						if(temp == i_new)
 							cipher_out <= plain_in ^ Sbox[j_new];
 						else if(temp == j_new)
@@ -139,9 +157,21 @@ module RC4(clk,rst,key_valid,key_in,plain_read,plain_in_valid,plain_in,plain_wri
 
 						key_count <= i_new; // refresh key_count
 						j <= j_new; // refresh j
+						*/
 					end
 					else
 						plain_read <= 0;
+				end
+				STATE_WRITE:begin
+					cipher_out <= plain_in ^ Sbox[temp];
+
+					j <= j_new;
+					
+					key_count = i_new;
+					tempi = Sbox[i_new];
+
+					cipher_write <= 1;
+					plain_read <= 1;
 				end
 				STATE_INITSBOX: begin
 					cipher_write <= 0;
@@ -165,6 +195,7 @@ module RC4(clk,rst,key_valid,key_in,plain_read,plain_in_valid,plain_in,plain_wri
 					key_count <= 0;
 				end
 				STATE_WRITEPLAIN: begin
+				/*
 					if(cipher_in_valid) begin //
 						cipher_read <= 1; //
 						Sbox[i_new] <= Sbox[j_new]; //i_new = key_count, so key_count has been init in prev step
@@ -182,6 +213,7 @@ module RC4(clk,rst,key_valid,key_in,plain_read,plain_in_valid,plain_in,plain_wri
 					end
 					else
 						cipher_read <= 0;
+				*/
 				end
 				STATE_DONE: begin
 					done <= 1;
